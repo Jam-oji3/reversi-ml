@@ -1,0 +1,13 @@
+(executables
+ (names main server)
+ (modules (:standard \
+ play_test))
+ (libraries unix)
+ (promote (until-clean)))
+
+(test
+ (name play_test)
+ (libraries unix ounit2))
+(env (dev (flags :standard -warn-error -27-32)))
+(ocamllex (modules commandLexer))
+(ocamlyacc (modules commandParser))
